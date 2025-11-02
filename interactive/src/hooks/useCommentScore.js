@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export function useCommentScores(initialComments) {
   const [comments, setComments] = useState(initialComments);
 
   // Update comment score by index
   const handleScoreChange = (index, delta) => {
-    setComments(prevComments =>
+    setComments((prevComments) =>
       prevComments.map((comment, i) =>
         i === index
-          ? { ...comment, score: Math.max(0, comment.score + delta) } 
+          ? { ...comment, score: Math.max(0, comment.score + delta) }
           : comment
       )
     );
